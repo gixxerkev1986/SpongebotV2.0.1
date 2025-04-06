@@ -15,6 +15,8 @@ async def on_ready():
     try:
         synced = await bot.tree.sync(guild=discord.Object(id=GUILD_ID))
         print(f"Slash commands gesynchroniseerd: {len(synced)}")
+        for cmd in synced:
+            print(f"Command: /{cmd.name}")
     except Exception as e:
         print(f"Fout bij syncen: {e}")
 
