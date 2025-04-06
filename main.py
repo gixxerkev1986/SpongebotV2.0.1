@@ -4,7 +4,7 @@ import asyncio
 import os
 
 TOKEN = os.getenv("DISCORD_TOKEN")
-GUILD_ID = int(os.getenv("GUILD_ID"))
+GUILD_ID = 1356894863454376105  # <- hardcoded
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix="!", intents=intents)
