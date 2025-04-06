@@ -1,5 +1,6 @@
 import discord
 from discord.ext import commands
+import asyncio
 import os
 
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -17,8 +18,9 @@ async def on_ready():
     except Exception as e:
         print(f"Fout bij syncen: {e}")
 
-async def load():
-    await bot.load_extension("commands.ping")
+async def main():
+    async with bot:
+        await bot.load_extension("commands.ping")
+        await bot.start(TOKEN)
 
-bot.loop.create_task(load())
-bot.run(TOKEN)
+asyncio.run(main())
